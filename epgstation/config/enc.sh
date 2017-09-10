@@ -1,8 +1,11 @@
 #!/bin/bash
 
+export LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+
 ffprobe_cmd=/usr/local/bin/ffprobe
 ffmpeg_cmd=/usr/local/bin/ffmpeg
 mode=$1
+deint=bob
 
 if [ "$mode" = "" ]; then
     mode="main"
@@ -13,8 +16,8 @@ function getHeight() {
 }
 
 if [ `getHeight` -gt 720 ]; then
-    /usr/local/bin/ffmpeg -dual_mono_mode $mode -i "$INPUT" -filter:v yadif -c:v libx264 -crf 23 -f mp4 -s 1280x720 -c:a aac -ar 48000 -ab 192k -ac 2 "$OUTPUT"
+    $ffmpeg_cmd -y -hwaccel cuvid -c:v mpeg2_cuvid -deint $deint -dual_mono_mode $mode -i "$INPUT" -f mp4 -vf scale_npp=1280:720 -c:v h264_nvenc -qp 23 -c:a aac -ar 48000 -ab 192k -ac 2 "$OUTPUT"
 else
-    /usr/local/bin/ffmpeg -dual_mono_mode $mode -i "$INPUT" -filter:v yadif -c:v libx264 -crf 23 -f mp4 -s 720x480 -c:a aac -ar 48000 -ab 128k -ac 2 "$OUTPUT"
+    $ffmpeg_cmd -y -c:v mpeg2_cuvid -deint $deint -dual_mono_mode $mode -i "$INPUT" -f mp4 -c:v h264_nvenc -qp 23 -c:a aac -ar 48000 -ab 192k -ac 2 "$OUTPUT"
 fi
 

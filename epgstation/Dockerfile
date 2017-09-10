@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get -y install $DEV && \
     apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev && \
     apt-get -y install libasound2 libass5 libvdpau1 libva-x11-1 libva-drm1 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 && \
+    apt-get -y install libva1 i965-va-driver && \
 \
 #ffmpeg build
 \
@@ -31,6 +32,7 @@ RUN apt-get update && \
       --enable-nonfree \
       --disable-debug \
       --disable-doc \
+      --enable-vaapi \
     && \
     cd /tmp/ffmpeg_sources/ffmpeg* && \
     make -j${CPUCORE} && \

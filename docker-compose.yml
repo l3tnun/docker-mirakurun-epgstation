@@ -49,12 +49,16 @@ services:
             - ./epgstation/thumbnail:/usr/local/EPGStation/thumbnail
             - ./epgstation/logs:/usr/local/EPGStation/logs
             - ./recorded:/usr/local/EPGStation/recorded
+        devices:
+            - "/dev/dri:/dev/dri"
         links:
             - mirakurun:mirakurun
             - mysql:mysql
         ports:
             - "8888:8888"
         #user: "1000:1000"
+        #group_add:
+        #    - 44 #version を 2 へ下げること
         #restart: always
 
 volumes:

@@ -11,6 +11,8 @@ PT3 + [m-tsudo/pt3](https://github.com/m-tsudo/pt3) の組み合わせを想定
 
 ホスト上の pcscd は停止する
 
+ホストに vaapi 関連のドライバをインストールする
+
 ## インストール手順
 
 ```

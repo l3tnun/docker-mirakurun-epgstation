@@ -41,6 +41,7 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
 \
 # install EPGStation
+    cd /usr/local/ && \
     git clone https://github.com/l3tnun/EPGStation.git && \
     cd /usr/local/EPGStation && \
     npm install && \

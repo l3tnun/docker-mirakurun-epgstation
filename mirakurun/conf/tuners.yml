@@ -1,0 +1,30 @@
+- name: PT3-S0
+  types:
+    - BS
+    - CS
+  command: recpt1 --device /dev/pt3video0 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PT3-S1
+  types:
+    - BS
+    - CS
+  command: recpt1 --device /dev/pt3video1 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PT3-T0
+  types:
+    - GR
+  command: recpt1 --device /dev/pt3video2 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PT3-T1
+  types:
+    - GR
+  command: recpt1 --device /dev/pt3video3 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+

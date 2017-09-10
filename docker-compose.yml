@@ -1,0 +1,63 @@
+version: '3'
+services:
+    mirakurun:
+        build:
+            context: mirakurun
+        container_name: mirakurun
+        #cap_add:
+        #    - SYS_NICE
+        #    - SYS_ADMIN
+        privileged: true
+        ports:
+            - "40772:40772"
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./mirakurun/conf:/usr/local/etc/mirakurun
+            - ./mirakurun/db:/usr/local/var/db/mirakurun
+        devices:
+            - /dev/pt3video0:/dev/pt3video0
+            - /dev/pt3video1:/dev/pt3video1
+            - /dev/pt3video2:/dev/pt3video2
+            - /dev/pt3video3:/dev/pt3video3
+            #- /dev/bus/usb/00x/00x # card reader
+        #restart: always
+
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        volumes:
+            - mysql-db:/var/lib/mysql
+        environment:
+            MYSQL_USER: epgstation
+            MYSQL_PASSWORD: epgstation
+            MYSQL_ROOT_PASSWORD: epgstation
+            MYSQL_DATABASE: epgstation
+            TZ: "Asia/Tokyo"
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --performance-schema=false
+        #restart: always
+
+    epgstation:
+        build:
+            context: epgstation
+            args:
+                - CPUCORE=2
+        container_name: epgstation
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./epgstation/config:/usr/local/EPGStation/config
+            - ./epgstation/data:/usr/local/EPGStation/data
+            - ./epgstation/thumbnail:/usr/local/EPGStation/thumbnail
+            - ./epgstation/logs:/usr/local/EPGStation/logs
+            - ./recorded:/usr/local/EPGStation/recorded
+        links:
+            - mirakurun:mirakurun
+            - mysql:mysql
+        ports:
+            - "8888:8888"
+        #user: "1000:1000"
+        #restart: always
+
+volumes:
+    mysql-db:
+        driver: local
+

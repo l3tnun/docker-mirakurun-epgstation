@@ -1,0 +1,15 @@
+*.swp
+*.log
+*.log.*
+*.log-*
+.DS_Store
+recorded/*
+epgstation/thumbnail/*.jpg
+epgstation/data/streamfiles/*.ts
+epgstation/data/streamfiles/*.m3u8
+epgstation/config/*.json
+!epgstation/config/config.json
+!epgstation/config/operatorLogConfig.json
+!epgstation/config/serviceLogConfig.json
+epgstation/data/*.json
+!.gitkeep

@@ -35,7 +35,7 @@ nvidia-docker run \
 -v `pwd`/epgstation/data:/usr/local/EPGStation/data \
 -v `pwd`/epgstation/thumbnail:/usr/local/EPGStation/thumbnail \
 -v `pwd`/epgstation/logs:/usr/local/EPGStation/logs \
--v /hdd/tmp/recorded:/usr/local/EPGStation/recorded \
+-v `pwd`/recorded:/usr/local/EPGStation/recorded \
 -p 8888:8888 \
 #-u "1000:1000" \
 --link mysql:mysql \

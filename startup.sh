@@ -19,8 +19,7 @@ docker run  \
 -v /etc/localtime:/etc/localtime:ro \
 -v `pwd`/mirakurun/conf:/usr/local/etc/mirakurun \
 -v `pwd`/mirakurun/db:/usr/local/var/db/mirakurun \
---cap-add=SYS_NICE \
---cap-add=SYS_ADMIN \
+--privileged \
 --device=/dev/pt3video0:/dev/pt3video0 \
 --device=/dev/pt3video1:/dev/pt3video1 \
 --device=/dev/pt3video2:/dev/pt3video2 \
@@ -37,7 +36,6 @@ nvidia-docker run \
 -v `pwd`/epgstation/logs:/usr/local/EPGStation/logs \
 -v `pwd`/recorded:/usr/local/EPGStation/recorded \
 -p 8888:8888 \
-#-u "1000:1000" \
 --link mysql:mysql \
 --link mirakurun:mirakurun \
 --restart=always \

@@ -47,7 +47,7 @@ $ sudo docker-compose stop
 
 ### EPGStation
 
-* ポート番号: 40772
+* ポート番号: 8888
 
 ### 各種ファイル保存先
 

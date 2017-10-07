@@ -1,8 +1,8 @@
 cd `dirname $0`
 
-sudo docker rm epgstation
-sudo docker rm mysql
-sudo docker rm mirakurun
+docker rm epgstation
+docker rm mysql
+docker rm mirakurun
 
 docker run  \
 -e MYSQL_USER=epgstation \

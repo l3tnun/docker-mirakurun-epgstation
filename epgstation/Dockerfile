@@ -2,7 +2,7 @@ FROM nvidia/cuda:9.0-devel-ubuntu16.04
 EXPOSE 8888
 ARG CPUCORE="1"
 ENV DEV="make gcc git g++ automake curl wget autoconf build-essential python2.7 libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
-ENV FFMPEG_VERSION=3.4
+ENV FFMPEG_VERSION=3.3.4
 
 RUN apt-get update && \
     apt-get -y install $DEV && \
@@ -35,7 +35,6 @@ RUN apt-get update && \
       --enable-cuda \
       --enable-cuvid \
       --enable-libnpp \
-      --enable-cuda-sdk \
       --extra-cflags=-I/usr/local/cuda/include \
       --extra-cflags=-I/usr/local/include \
       --extra-ldflags=-L/usr/local/cuda/lib64 \

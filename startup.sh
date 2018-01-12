@@ -13,7 +13,7 @@ docker run  \
 -v dockermirakurunepgstation_mysql-db:/var/lib/mysql \
 --restart=always \
 --name mysql -i -t -d mysql:8.0 \
-mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --performance-schema=false
+mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --performance-schema=false --expire_logs_days=1
 
 docker run  \
 -v /etc/localtime:/etc/localtime:ro \

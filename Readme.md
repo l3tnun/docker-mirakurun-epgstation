@@ -5,7 +5,7 @@ docker-mirakurun-epgstation
 
 ## 前提条件
 
-Docker, docker-compose, nvidia-docker の導入が必須
+Docker ```>=1.12```, docker-compose ```>=1.19```, nvidia-docker2 の導入が必須
 
 PT3 + [m-tsudo/pt3](https://github.com/m-tsudo/pt3) の組み合わせを想定
 
@@ -24,26 +24,19 @@ $ vim mirakurun/conf/channels.yml
 
 #コメントアウトされている restart や user の設定を適宜変更する
 $ vim docker-compose.yml
-
-#同様に設定を適宜変更する
-$ vim startup.sh
 ```
 
 ## 起動
 
 ```
-# mysql の user & データベース生成のために起動 (初回だけ)
-# 起動が一通り完了したら Ctrl + c で停止
-$ sudo docker-compose up
-# nvidia-docker を使用して起動
-# sudo ./startup.sh
+$ sudo docker-compose up -d
 ```
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する
 
 ## 停止
 
 ```
-$ sudo ./stop.sh
+$ sudo docker-compose stop
 ```
 
 ## 設定

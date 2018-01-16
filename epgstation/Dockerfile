@@ -3,6 +3,8 @@ EXPOSE 8888
 ARG CPUCORE="1"
 ENV DEV="make gcc git g++ automake curl wget autoconf build-essential python2.7 libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
 ENV FFMPEG_VERSION=3.3.4
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES video,compute,utility
 
 RUN apt-get update && \
     apt-get -y install $DEV && \
@@ -42,6 +44,10 @@ RUN apt-get update && \
     cd /tmp/ffmpeg_sources/ffmpeg* && \
     make -j${CPUCORE} && \
     make install && \
+\
+# create dummy libGL.so.1
+# see https://github.com/NVIDIA/nvidia-docker/issues/531
+    echo | gcc -shared -o /usr/lib/x86_64-linux-gnu/libGL.so.1 -Wl,-soname=libGL.so.1 -x c - && \
 \
 # nodejs install
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \

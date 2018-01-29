@@ -5,7 +5,7 @@ docker-mirakurun-epgstation
 
 ## 前提条件
 
-Docker ```>=1.12```, docker-compose ```>=1.19```, nvidia-docker2 の導入が必須
+Docker ```>=17.06.0```, docker-compose ```>=1.19```, [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker) の導入が必須
 
 PT3 + [m-tsudo/pt3](https://github.com/m-tsudo/pt3) の組み合わせを想定
 

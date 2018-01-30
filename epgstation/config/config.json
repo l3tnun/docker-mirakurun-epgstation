@@ -40,11 +40,11 @@
     "mpegTsStreaming": [
         {
             "name": "1280x720(main)",
-            "cmd": "/usr/local/bin/ffmpeg -re -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -i pipe:0 -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=1280:h=720 -c:a aac -ar 48000 -ab 192k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -q 21 -f mpegts pipe:1"
+            "cmd": "/usr/local/bin/ffmpeg -re -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -i pipe:0 -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=1280:h=720 -c:a aac -ar 48000 -ab 192k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -q 21 -f mpegts pipe:1"
         },
         {
             "name": "720x480(main)",
-            "cmd": "/usr/local/bin/ffmpeg -re -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -i pipe:0 -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=720:h=480 -c:a aac -ar 48000 -ab 128k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -vb 1500k -f mpegts pipe:1"
+            "cmd": "/usr/local/bin/ffmpeg -re -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -i pipe:0 -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=720:h=480 -c:a aac -ar 48000 -ab 128k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -vb 1500k -f mpegts pipe:1"
         },
         {
             "name": "無変換"
@@ -58,11 +58,11 @@
     "recordedHLS": [
         {
             "name": "1280x720(main)",
-            "cmd": "/usr/local/bin/ffmpeg -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -i %INPUT% -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=1280:h=720 -f hls -hls_time 3 -hls_list_size 0 -hls_allow_cache 1 -hls_segment_filename %streamFileDir%/stream%streamNum%-%09d.ts -threads auto -c:a aac -ar 48000 -ab 192k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -qp 21 -flags +loop-global_header %OUTPUT%"
+            "cmd": "/usr/local/bin/ffmpeg -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -i %INPUT% -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=1280:h=720 -f hls -hls_time 3 -hls_list_size 0 -hls_allow_cache 1 -hls_segment_filename %streamFileDir%/stream%streamNum%-%09d.ts -threads auto -c:a aac -ar 48000 -ab 192k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -qp 21 -flags +loop-global_header %OUTPUT%"
         },
         {
             "name": "720x480(main)",
-            "cmd": "/usr/local/bin/ffmpeg -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -i %INPUT% -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=720:h=480 -f hls -hls_time 3 -hls_list_size 0 -hls_allow_cache 1 -hls_segment_filename %streamFileDir%/stream%streamNum%-%09d.ts -threads auto -c:a aac -ar 48000 -ab 128k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -vb 1500k -flags +loop-global_header %OUTPUT%"
+            "cmd": "/usr/local/bin/ffmpeg -dual_mono_mode main -vaapi_device /dev/dri/renderD128 -i %INPUT% -vf format=nv12|vaapi,hwupload,deinterlace_vaapi,scale_vaapi=w=720:h=480 -f hls -hls_time 3 -hls_list_size 0 -hls_allow_cache 1 -hls_segment_filename %streamFileDir%/stream%streamNum%-%09d.ts -threads auto -c:a aac -ar 48000 -ab 128k -ac 2 -c:v h264_vaapi -level 40 -aspect 16:9 -vb 1500k -flags +loop-global_header %OUTPUT%"
         }
     ]
 }

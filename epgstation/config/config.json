@@ -9,8 +9,6 @@
         "connectTimeout": 1000,
         "connectionLimit": 10
     },
-    "programInsertMax": 100,
-    "programInsertWait": 0,
     "excludeServices": [],
     "maxEncode": 2,
     "encode": [

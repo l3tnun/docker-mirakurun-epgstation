@@ -36,7 +36,7 @@ mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:88
 ## 停止
 
 ```
-$ sudo docker-compose stop
+$ sudo docker-compose down
 ```
 
 ## 設定

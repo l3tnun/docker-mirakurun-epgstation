@@ -1,0 +1,4 @@
+config/*
+data/*
+logs/*
+thumbnail/*

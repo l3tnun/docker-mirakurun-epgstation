@@ -77,7 +77,7 @@
 
 - name: BSジャパン
   type: BS
-  channel: BS03_1
+  channel: BS01_2
   serviceId: 171
 
 - name: BSフジ

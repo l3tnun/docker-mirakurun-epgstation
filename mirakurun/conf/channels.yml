@@ -42,12 +42,12 @@
 
 - name: NHK BSプレミアム
   type: BS
-  channel: BS15_1
+  channel: BS03_1
   serviceId: 103
 
 - name: NHK BSプレミアム (sub)
   type: BS
-  channel: BS15_1
+  channel: BS03_1
   serviceId: 104
 
 - name: BS日テレ

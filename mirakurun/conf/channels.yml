@@ -154,7 +154,7 @@
 
 - name: BSアニマックス
   type: BS
-  channel: BS07_1
+  channel: BS13_2
   serviceId: 236
   isDisabled: false
 
@@ -214,7 +214,7 @@
 
 - name: ディズニー・チャンネル
   type: BS
-  channel: BS07_2
+  channel: BS03_2
   serviceId: 256
   isDisabled: false
 

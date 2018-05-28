@@ -111,13 +111,13 @@
 
 - name: スター・チャンネル2
   type: BS
-  channel: BS07_0
+  channel: BS15_1
   serviceId: 201
   isDisabled: false
 
 - name: スター・チャンネル3
   type: BS
-  channel: BS07_0
+  channel: BS15_1
   serviceId: 202
   isDisabled: false
 

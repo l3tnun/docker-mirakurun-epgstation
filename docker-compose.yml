@@ -23,7 +23,7 @@ services:
         #restart: always
 
     mysql:
-        image: mysql:8.0
+        image: mariadb:10.3
         container_name: mysql
         volumes:
             - mysql-db:/var/lib/mysql

@@ -39,7 +39,7 @@ RUN apt-get update && \
     make install && \
 \
 # nodejs install
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
 \
 # install EPGStation

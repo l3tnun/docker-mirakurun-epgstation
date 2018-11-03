@@ -50,7 +50,7 @@ RUN apt-get update && \
     echo | gcc -shared -o /usr/lib/x86_64-linux-gnu/libGL.so.1 -Wl,-soname=libGL.so.1 -x c - && \
 \
 # nodejs install
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
 \
 # install EPGStation

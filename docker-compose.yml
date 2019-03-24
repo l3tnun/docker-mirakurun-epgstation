@@ -14,6 +14,8 @@ services:
             - /etc/localtime:/etc/localtime:ro
             - ./mirakurun/conf:/usr/local/etc/mirakurun
             - ./mirakurun/db:/usr/local/var/db/mirakurun
+        environment:
+            TZ: "Asia/Tokyo"
         devices:
             - /dev/pt3video0:/dev/pt3video0
             - /dev/pt3video1:/dev/pt3video1
@@ -50,6 +52,8 @@ services:
             - ./epgstation/thumbnail:/usr/local/EPGStation/thumbnail
             - ./epgstation/logs:/usr/local/EPGStation/logs
             - ./recorded:/usr/local/EPGStation/recorded
+        environment:
+            TZ: "Asia/Tokyo"
         links:
             - mirakurun:mirakurun
             - mysql:mysql

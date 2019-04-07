@@ -6,7 +6,7 @@ ENV FFMPEG_VERSION=3.4
 
 RUN apt-get update && \
     apt-get -y install $DEV && \
-    apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev && \
+    apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev && \
     apt-get -y install libasound2 libass5 libvdpau1 libva-x11-1 libva-drm1 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 && \
 \
 #ffmpeg build
@@ -27,6 +27,7 @@ RUN apt-get update && \
       --enable-libopus \
       --enable-libtheora \
       --enable-libvorbis \
+      --enable-libvpx \
       --enable-libx264 \
       --enable-nonfree \
       --disable-debug \

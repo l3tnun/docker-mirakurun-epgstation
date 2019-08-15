@@ -50,6 +50,7 @@ $ sudo docker-compose down
 ### EPGStation
 
 * ポート番号: 8888
+* ポート番号: 8889
 
 ### 各種ファイル保存先
 

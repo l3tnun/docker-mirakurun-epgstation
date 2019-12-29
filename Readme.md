@@ -1,3 +1,9 @@
+## **<span style="color: red;">注意: このブランチはメンテナンスされていません</span>**
+
+nvenc 環境が手元にないため、あくまでも参考実装として見てください
+
+---
+
 docker-mirakurun-epgstation
 ====
 

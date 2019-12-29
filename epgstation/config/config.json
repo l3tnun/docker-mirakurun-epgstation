@@ -1,7 +1,6 @@
 {
     "serverPort": 8888,
-    "mirakurunPath": "http://192.168.1.2:40772/",
-    "-mirakurunPath": "http://mirakurun:40772/",
+    "mirakurunPath": "http://mirakurun:40772/",
     "mysql": {
         "host": "mysql",
         "user": "epgstation",

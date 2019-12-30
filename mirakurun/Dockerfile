@@ -35,7 +35,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/recpt1
 
-WORKDIR /usr/lib/node_modules/mirakurun
+WORKDIR /usr/local/lib/node_modules/mirakurun
 
 ENTRYPOINT /etc/init.d/pcscd start && \
     npm start

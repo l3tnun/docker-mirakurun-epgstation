@@ -13,3 +13,4 @@ epgstation/config/*.json
 !epgstation/config/serviceLogConfig.json
 epgstation/data/*.json
 !.gitkeep
+/certs/*

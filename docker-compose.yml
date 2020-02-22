@@ -1,5 +1,14 @@
 version: '3'
 services:
+    nginx:
+        container_name: nginx
+        image: jwilder/nginx-proxy
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./certs:/etc/nginx/certs # ここに証明書を設置する
     mirakurun:
         build:
             context: mirakurun
@@ -53,6 +62,9 @@ services:
             - ./recorded:/usr/local/EPGStation/recorded
         environment:
             TZ: "Asia/Tokyo"
+            VIRTUAL_HOST: "localhost"
+            VIRTUAL_PORT: 8888
+            CERT_NAME: "default"
         links:
             - mirakurun:mirakurun
             - mysql:mysql

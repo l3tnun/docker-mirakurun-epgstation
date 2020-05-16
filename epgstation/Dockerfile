@@ -1,7 +1,7 @@
-FROM node:12-buster-slim
+FROM l3tnun/epgstation:master-debian
 EXPOSE 8888
 ARG CPUCORE="1"
-ENV DEV="make gcc git g++ automake curl wget autoconf build-essential python3 libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
+ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
 ENV FFMPEG_VERSION=4.1
 
 RUN apt-get update && \
@@ -39,13 +39,6 @@ RUN apt-get update && \
     make -j${CPUCORE} && \
     make install && \
 \
-# install EPGStation
-    cd /usr/local/ && \
-    git clone https://github.com/l3tnun/EPGStation.git && \
-    cd /usr/local/EPGStation && \
-    npm install && \
-    npm run build && \
-\
 # 不要なパッケージを削除
 \
     apt-get -y remove $DEV && \
@@ -53,8 +46,4 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/ffmpeg_sources
-
-WORKDIR /usr/local/EPGStation
-
-ENTRYPOINT npm start
 

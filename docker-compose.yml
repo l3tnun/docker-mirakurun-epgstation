@@ -46,11 +46,11 @@ services:
         container_name: epgstation
         volumes:
             - /etc/localtime:/etc/localtime:ro
-            - ./epgstation/config:/usr/local/EPGStation/config
-            - ./epgstation/data:/usr/local/EPGStation/data
-            - ./epgstation/thumbnail:/usr/local/EPGStation/thumbnail
-            - ./epgstation/logs:/usr/local/EPGStation/logs
-            - ./recorded:/usr/local/EPGStation/recorded
+            - ./epgstation/config:/app/config
+            - ./epgstation/data:/app/data
+            - ./epgstation/thumbnail:/app/thumbnail
+            - ./epgstation/logs:/app/logs
+            - ./recorded:/app/recorded
         environment:
             TZ: "Asia/Tokyo"
         links:

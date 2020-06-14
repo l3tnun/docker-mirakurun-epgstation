@@ -16,6 +16,7 @@ PT3 + [m-tsudo/pt3](https://github.com/m-tsudo/pt3) の組み合わせを想定
 ```
 $ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
+$ cp docker-compose-sample.yml docker-compose.yml
 $ sudo docker-compose pull
 $ sudo docker-compose build
 

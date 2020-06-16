@@ -1,27 +1,21 @@
 version: '3.7'
 services:
     mirakurun:
-        build:
-            context: mirakurun
+        image: chinachu/mirakurun
         container_name: mirakurun
         #cap_add:
-        #    - SYS_NICE
         #    - SYS_ADMIN
-        privileged: true
+        #    - SYS_NICE
         ports:
             - "40772:40772"
         volumes:
-            - /etc/localtime:/etc/localtime:ro
-            - ./mirakurun/conf:/usr/local/etc/mirakurun
-            - ./mirakurun/db:/usr/local/var/db/mirakurun
+            - ./mirakurun/conf:/app-config
+            - ./mirakurun/data:/app-data
         environment:
             TZ: "Asia/Tokyo"
         devices:
-            - /dev/pt3video0:/dev/pt3video0
-            - /dev/pt3video1:/dev/pt3video1
-            - /dev/pt3video2:/dev/pt3video2
-            - /dev/pt3video3:/dev/pt3video3
-            #- /dev/bus/usb/00x/00x # card reader
+            - /dev/bus:/dev/bus
+            - /dev/dvb:/dev/dvb
         #restart: always
 
     mysql:

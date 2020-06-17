@@ -44,9 +44,9 @@ services:
             - ./recorded:/app/recorded
         environment:
             TZ: "Asia/Tokyo"
-        links:
-            - mirakurun:mirakurun
-            - mysql:mysql
+        depends_on:
+            - mirakurun
+            - mysql
         ports:
             - "8888:8888"
             - "8889:8889"

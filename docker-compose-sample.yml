@@ -2,9 +2,9 @@ version: '3.7'
 services:
     mirakurun:
         image: chinachu/mirakurun
-        #cap_add:
-        #    - SYS_ADMIN
-        #    - SYS_NICE
+        cap_add:
+            - SYS_ADMIN
+            - SYS_NICE
         ports:
             - "40772:40772"
         volumes:

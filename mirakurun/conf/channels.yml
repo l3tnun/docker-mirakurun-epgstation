@@ -133,17 +133,17 @@
 
 - name: 放送大学BS1
   type: BS
-  channel: BS11_2
+  channel: BS11_1
   serviceId: 231
 
 - name: 放送大学BS2
   type: BS
-  channel: BS11_2
+  channel: BS11_1
   serviceId: 232
 
 - name: 放送大学BS3
   type: BS
-  channel: BS11_2
+  channel: BS11_1
   serviceId: 233
 
 - name: グリーンチャンネル
@@ -158,15 +158,9 @@
   serviceId: 236
   isDisabled: false
 
-- name: FOXスポーツ＆エンターテイメント
-  type: BS
-  channel: BS11_0
-  serviceId: 238
-  isDisabled: false
-
 - name: BSスカパー!
   type: BS
-  channel: BS11_1
+  channel: BS11_0
   serviceId: 241
   isDisabled: false
 
@@ -216,12 +210,6 @@
   type: BS
   channel: BS03_2
   serviceId: 256
-  isDisabled: false
-
-- name: D-Life
-  type: BS
-  channel: BS23_2
-  serviceId: 258
   isDisabled: false
 
 - name: CS2

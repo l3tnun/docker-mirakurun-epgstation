@@ -4,21 +4,21 @@
             "type": "file",
             "maxLogSize": 1048576,
             "backups": 3,
-            "filename": "/usr/local/EPGStation/logs/Service/system.log",
+            "filename": "/app/logs/Service/system.log",
             "pattern": "-yyyy-MM-dd"
         },
         "access": {
             "type": "file",
             "maxLogSize": 1048576,
             "backups": 3,
-            "filename": "/usr/local/EPGStation/logs/Service/access.log",
+            "filename": "/app/logs/Service/access.log",
             "pattern": "-yyyy-MM-dd"
         },
         "stream": {
             "type": "file",
             "maxLogSize": 1048576,
             "backups": 3,
-            "filename": "/usr/local/EPGStation/logs/Service/stream.log",
+            "filename": "/app/logs/Service/stream.log",
             "pattern": "-yyyy-MM-dd"
         },
         "console": { "type": "console" },

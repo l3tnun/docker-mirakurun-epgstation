@@ -21,7 +21,7 @@
     ],
     "recordedViewer": {
         "ios": "infuse://x-callback-url/play?url=http://ADDRESS",
-        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end",
+        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end"
     },
     "recordedDownloader": {
         "ios": "vlc-x-callback://x-callback-url/download?url=http://ADDRESS&filename=FILENAME"

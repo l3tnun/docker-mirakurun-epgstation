@@ -19,16 +19,13 @@
             "default": true
         }
     ],
-    "delts": false,
     "recordedViewer": {
         "ios": "infuse://x-callback-url/play?url=http://ADDRESS",
-        "android": "intent://ADDRESS#Intent;package=com.mxtech.videoplayer.ad;type=video;scheme=http;end"
+        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end",
     },
     "recordedDownloader": {
-        "ios": "vlc-x-callback://x-callback-url/download?url=http://ADDRESS&filename=FILENAME",
-        "android": "intent://ADDRESS#Intent;package=com.dv.adm;type=video;scheme=http;end"
+        "ios": "vlc-x-callback://x-callback-url/download?url=http://ADDRESS&filename=FILENAME"
     },
-
     "maxStreaming": 4,
     "mpegTsViewer": {
         "ios": "vlc-x-callback://x-callback-url/stream?url=http://ADDRESS",
@@ -36,17 +33,21 @@
     },
     "mpegTsStreaming": [
         {
-            "name": "1280x720",
-            "cmd": "%FFMPEG% -re -dual_mono_mode main -i pipe:0 -sn -c:a aac -ar 48000 -ab 192k -ac 2 -c:v libx264 -s 1280x720 -vf yadif -preset veryfast -aspect 16:9 -vb 3000k -f mpegts pipe:1"
+            "name": "720p",
+            "cmd": "%FFMPEG% -re -dual_mono_mode main -i pipe:0 -sn -threads 0 -c:a aac -ar 48000 -b:a 192k -ac 2 -c:v libx264 -vf yadif,scale=-2:720 -b:v 3000k -preset veryfast -y -f mpegts pipe:1"
         },
         {
-            "name": "720x480",
-            "cmd": "%FFMPEG% -re -dual_mono_mode main -i pipe:0 -sn -c:a aac -ar 48000 -ab 128k -ac 2 -c:v libx264 -s 720x480 -vf yadif -preset veryfast -aspect 16:9 -vb 1500k -f mpegts pipe:1"
+            "name": "480p",
+            "cmd": "%FFMPEG% -re -dual_mono_mode main -i pipe:0 -sn -threads 0 -c:a aac -ar 48000 -b:a 128k -ac 2 -c:v libx264 -vf yadif,scale=-2:480 -b:v 1500k -preset veryfast -y -f mpegts pipe:1"
         },
         {
             "name": "無変換"
         }
     ],
+    "mpegTsViewer": {
+        "ios": "vlc-x-callback://x-callback-url/stream?url=http://ADDRESS",
+        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end"
+    },
     "recordedHLS": [
         {
             "name": "1280x720(main)",

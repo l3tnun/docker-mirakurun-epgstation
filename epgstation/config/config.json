@@ -29,7 +29,7 @@
     "maxStreaming": 4,
     "mpegTsViewer": {
         "ios": "vlc-x-callback://x-callback-url/stream?url=http://ADDRESS",
-        "android": "intent://ADDRESS#Intent;package=com.mxtech.videoplayer.ad;type=video;scheme=http;end"
+        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end"
     },
     "mpegTsStreaming": [
         {
@@ -44,10 +44,6 @@
             "name": "無変換"
         }
     ],
-    "mpegTsViewer": {
-        "ios": "vlc-x-callback://x-callback-url/stream?url=http://ADDRESS",
-        "android": "intent://ADDRESS#Intent;package=org.videolan.vlc;type=video;scheme=https;end"
-    },
     "recordedHLS": [
         {
             "name": "720p",

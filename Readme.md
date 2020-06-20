@@ -1,19 +1,17 @@
-docker-mirakurun-epgstation
-====
-
+# docker-mirakurun-epgstation
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 
+## 更新情報
+mirakurunが仕様変更したタイミングでこちらも中身を更新しています。以前バージョンからご使用の場合は一度コンテナを終了し`mirakurun/data`内のjsonをymlに拡張子を変更してください。
+
 ## 前提条件
-
-Docker, docker-compose の導入が必須
-
-PT3 + [m-tsudo/pt3](https://github.com/m-tsudo/pt3) の組み合わせを想定
-
-ホスト上の pcscd は停止する
+- Docker, docker-compose の導入が必須
+- ホスト上の pcscd は停止する
+- PT3用に設定済みなのでPT3での使用を想定
 
 ## インストール手順
 
-```
+```sh
 $ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
 $ cp docker-compose-sample.yml docker-compose.yml
@@ -29,14 +27,14 @@ $ vim docker-compose.yml
 
 ## 起動
 
-```
+```sh
 $ sudo docker-compose up -d
 ```
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する
 
 ## 停止
 
-```
+```sh
 $ sudo docker-compose down
 ```
 

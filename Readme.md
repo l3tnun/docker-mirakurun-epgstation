@@ -15,6 +15,7 @@ mirakurunが仕様変更したタイミングでこちらも中身を更新し�
 $ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
 $ cp docker-compose-sample.yml docker-compose.yml
+$ cp epgstation/config/config.sample.json epgstation/config/config.json
 $ sudo docker-compose pull
 $ sudo docker-compose build
 

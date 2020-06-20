@@ -7,6 +7,7 @@ services:
             - SYS_NICE
         ports:
             - "40772:40772"
+            - "9229:9229"
         volumes:
             - ./mirakurun/conf:/app-config
             - ./mirakurun/data:/app-data

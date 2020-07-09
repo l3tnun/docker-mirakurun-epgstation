@@ -1,9 +1,6 @@
 # docker-mirakurun-epgstation
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 
-## 更新情報
-mirakurunが仕様変更したタイミングでこちらも中身を更新しています。以前バージョンからご使用の場合は一度コンテナを終了し`mirakurun/data`内のjsonをymlに拡張子を変更してください。
-
 ## 前提条件
 - Docker, docker-compose の導入が必須
 - ホスト上の pcscd は停止する

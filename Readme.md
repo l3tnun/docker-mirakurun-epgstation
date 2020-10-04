@@ -4,17 +4,19 @@
 ## 前提条件
 - Docker, docker-compose の導入が必須
 - ホスト上の pcscd は停止する
-- PT3用に設定済みなのでPT3での使用を想定
+- チューナーのドライバが適切にインストールされていること
 
 ## インストール手順
 
 ```sh
-$ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
+$ git clone --recursive https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
 $ cp docker-compose-sample.yml docker-compose.yml
-$ cp epgstation/config/config.sample.json epgstation/config/config.json
-$ sudo docker-compose pull
-$ sudo docker-compose build
+$ cp epgstation/config/config.sample.yml epgstation/config/config.yml
+$ cp epgstation/config/operatorLogConfig.sample.yml epgstation/config/operatorLogConfig.yml
+$ cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdaterLogConfig.yml
+$ cp epgstation/config/serviceLogConfig.sample.yml epgstation/config/serviceLogConfig.yml
+$ docker-compose run --rm -e SETUP=true mirakurun
 
 #チャンネル設定
 $ vim mirakurun/conf/channels.yml

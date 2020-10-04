@@ -9,7 +9,7 @@
 ## インストール手順
 
 ```sh
-$ git clone --recursive https://github.com/l3tnun/docker-mirakurun-epgstation.git
+$ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
 $ cp docker-compose-sample.yml docker-compose.yml
 $ cp epgstation/config/config.sample.yml epgstation/config/config.yml

@@ -24,6 +24,8 @@ cp epgstation/config/serviceLogConfig.sample.yml epgstation/config/serviceLogCon
 vim epgstation/config/serviceLogConfig.yml
 rm -f epgstation/config/*.json
 cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdaterLogConfig.yml
+# v1の頃のDBのデータを削除
+docker-compose down -v && docker-compose up -d mirakurun mysql
 # v2にイメージを更新
 docker-compose build --pull --no-cache
 # v1からデータをマイグレーション

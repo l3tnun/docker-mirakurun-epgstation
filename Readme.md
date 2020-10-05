@@ -1,7 +1,9 @@
 # docker-mirakurun-epgstation
+
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 
 ## 前提条件
+
 - Docker, docker-compose の導入が必須
 - ホスト上の pcscd は停止する
 - チューナーのドライバが適切にインストールされていること
@@ -30,6 +32,7 @@ $ vim docker-compose.yml
 ```sh
 $ sudo docker-compose up -d
 ```
+
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する
 
 ## 停止
@@ -70,3 +73,7 @@ $ sudo docker-compose down
 * EPGStation のログ
 
 ```./epgstation/logs```
+
+## v1からの移行について
+
+[docs/migration.md](docs/migration.md)を参照

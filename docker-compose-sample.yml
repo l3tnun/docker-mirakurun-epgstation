@@ -41,10 +41,7 @@ services:
                 max-file: "3"
 
     epgstation:
-        build:
-            context: epgstation
-            args:
-                - CPUCORE=2
+        build: epgstation
         volumes:
             - /etc/localtime:/etc/localtime:ro
             - ./epgstation/config:/app/config

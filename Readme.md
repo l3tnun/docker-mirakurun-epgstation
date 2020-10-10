@@ -1,10 +1,12 @@
 # docker-mirakurun-epgstation
+
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 
 ## 前提条件
+
 - Docker, docker-compose の導入が必須
 - ホスト上の pcscd は停止する
-- PT3用に設定済みなのでPT3での使用を想定
+- チューナーのドライバが適切にインストールされていること
 
 ## インストール手順
 
@@ -12,9 +14,11 @@
 $ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 $ cd docker-mirakurun-epgstation
 $ cp docker-compose-sample.yml docker-compose.yml
-$ cp epgstation/config/config.sample.json epgstation/config/config.json
-$ sudo docker-compose pull
-$ sudo docker-compose build
+$ cp epgstation/config/config.sample.yml epgstation/config/config.yml
+$ cp epgstation/config/operatorLogConfig.sample.yml epgstation/config/operatorLogConfig.yml
+$ cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdaterLogConfig.yml
+$ cp epgstation/config/serviceLogConfig.sample.yml epgstation/config/serviceLogConfig.yml
+$ docker-compose run --rm -e SETUP=true mirakurun
 
 #チャンネル設定
 $ vim mirakurun/conf/channels.yml
@@ -28,6 +32,7 @@ $ vim docker-compose.yml
 ```sh
 $ sudo docker-compose up -d
 ```
+
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する
 
 ## 停止
@@ -68,3 +73,7 @@ $ sudo docker-compose down
 * EPGStation のログ
 
 ```./epgstation/logs```
+
+## v1からの移行について
+
+[docs/migration.md](docs/migration.md)を参照

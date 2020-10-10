@@ -1,13 +1,9 @@
-FROM l3tnun/epgstation:master-debian
+FROM l3tnun/epgstation:alpine
 
-ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev"
+ENV DEV="autoconf automake bash binutils bzip2 cmake curl coreutils diffutils file g++ gcc gperf libtool make python openssl-dev tar yasm nasm zlib-dev expat-dev pkgconfig libass-dev lame-dev opus-dev libtheora-dev libvorbis-dev libvpx-dev x264-dev x265-dev"
 ENV FFMPEG_VERSION=4.1
 
-RUN apt-get update && \
-    apt-get -y install $DEV && \
-    apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev && \
-    apt-get -y install libx265-dev libnuma-dev && \
-    apt-get -y install libasound2 libass9 libvdpau1 libva-x11-2 libva-drm2 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 && \
+RUN apk add --no-cache libgcc libstdc++ ca-certificates libcrypto1.1 libssl1.1 libgomp expat git lame libass libvpx opus libtheora libvorbis x264-libs x265-libs $DEV && \
 \
 #ffmpeg build
 \
@@ -19,7 +15,6 @@ RUN apt-get update && \
     ./configure \
       --prefix=/usr/local \
       --disable-shared \
-      --pkg-config-flags=--static \
       --enable-gpl \
       --enable-libass \
       --enable-libfreetype \
@@ -40,8 +35,5 @@ RUN apt-get update && \
 \
 # 不要なパッケージを削除
 \
-    apt-get -y remove $DEV && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
+    apk del $DEV && \
     rm -rf /tmp/ffmpeg_sources

@@ -8,7 +8,9 @@ vim docker-compose.yml
 # DBをマイグレーションするのでいったん終了
 docker-compose kill epgstation && docker-compose rm -f epgstation
 # DBを更新するためコンテナに入る
-docker-compose run --rm epgstation sh
+docker-compose run --rm --entrypoint sh epgstation
+# gitをインストール
+apt-get update && apt-get install git
 # 最新のv1にして起動するその後起動完了したらCtrl + Cで終了
 git pull && git checkout v1.7.5 && npm install --no-save && npm run build && npm start
 # 下記コマンドでバックアップファイルを作成する

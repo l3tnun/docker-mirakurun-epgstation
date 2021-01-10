@@ -11,7 +11,7 @@ apt-get update && apt-get install git
 vi .git/config
 # [http "https://github.com/"]と書いてある行と次の行を削除
 # 最新のv1にして起動するその後起動完了したらCtrl + Cで終了
-git pull && git checkout v1 && npm install --no-save && npm i && npm run build && npm start
+git pull && git checkout v1 && npm install --no-save && npm run build && npm start
 # 下記コマンドでバックアップファイルを作成する
 npm run backup config/backup
 # コンテナを抜ける

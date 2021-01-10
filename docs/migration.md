@@ -15,7 +15,7 @@ docker-compose run --rm --entrypoint sh epgstation
 apt-get update && apt-get install git
 # gitを操作可能にするために設定を変更する
 vi .git/config
-# extraheader = AUTHORIZATIONと書いてある業と次の行を削除
+# [http "https://github.com/"]と書いてある行と次の行を削除
 # 最新のv1にして起動するその後起動完了したらCtrl + Cで終了
 git pull && git checkout v1 && npm install --no-save && npm run build && npm start
 # 下記コマンドでバックアップファイルを作成する

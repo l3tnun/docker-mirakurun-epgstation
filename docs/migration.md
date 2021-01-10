@@ -7,12 +7,17 @@ git pull
 vim docker-compose.yml
 # DBをマイグレーションするのでいったん終了
 docker-compose kill epgstation && docker-compose rm -f epgstation
+# イメージを更新
+docker-compose build --pull --no-cache 
 # DBを更新するためコンテナに入る
 docker-compose run --rm --entrypoint sh epgstation
 # gitをインストール
 apt-get update && apt-get install git
+# gitを操作可能にするために設定を変更する
+vi .git/config
+# extraheader = AUTHORIZATIONと書いてある業と次の行を削除
 # 最新のv1にして起動するその後起動完了したらCtrl + Cで終了
-git pull && git checkout v1.7.5 && npm install --no-save && npm run build && npm start
+git pull && git checkout v1 && npm install --no-save && npm run build && npm start
 # 下記コマンドでバックアップファイルを作成する
 npm run backup config/backup
 # コンテナを抜ける
@@ -28,8 +33,6 @@ rm -f epgstation/config/*.json
 cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdaterLogConfig.yml
 # v1の頃のDBのデータを削除
 docker-compose down -v && docker-compose up -d mirakurun mysql
-# v2にイメージを更新
-docker-compose build --pull --no-cache
 # v1からデータをマイグレーション
 docker-compose run --rm sh -c "npm run v1migrate config/backup"
 # 起動

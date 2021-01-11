@@ -34,7 +34,7 @@ cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdater
 # v1の頃のDBのデータを削除
 docker-compose down -v && docker-compose up -d mirakurun mysql
 # v1からデータをマイグレーション
-docker-compose run --rm sh -c "npm run v1migrate config/backup"
+docker-compose run --rm --entrypoint sh epgstation -c "npm run v1migrate config/backup"
 # 起動
 docker-compose up -d
 ```

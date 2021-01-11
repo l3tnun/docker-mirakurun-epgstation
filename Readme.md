@@ -47,7 +47,7 @@ $ sudo docker-compose down
 # mirakurunとdbを更新
 $ sudo docker-compose pull
 # epgstationを更新
-$ sudo docker-cmpose build --pull
+$ sudo docker-compose build --pull
 # 最新のイメージを元に起動
 $ sudo docker-compose up -d
 ```

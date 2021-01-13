@@ -41,6 +41,17 @@ mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:88
 $ sudo docker-compose down
 ```
 
+## 更新
+
+```sh
+# mirakurunとdbを更新
+$ sudo docker-compose pull
+# epgstationを更新
+$ sudo docker-compose build --pull
+# 最新のイメージを元に起動
+$ sudo docker-compose up -d
+```
+
 ## 設定
 
 ### Mirakurun

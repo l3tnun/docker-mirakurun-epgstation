@@ -21,7 +21,7 @@ conflictPriority: 1
 recPriority: 2
 
 recordedFormat: '%YEAR%年%MONTH%月%DAY%日%HOUR%時%MIN%分%SEC%秒-%TITLE%'
-recordedFileExtension: .ts
+recordedFileExtension: .m2ts
 recorded:
     - name: recorded
       path: '%ROOT%/recorded'
@@ -106,16 +106,6 @@ stream:
                       %streamFileDir%/stream%streamNum%-%09d.ts -hls_flags delete_segments -c:a aac -ar 48000 -b:a 128k
                       -ac 2 -c:v libx264 -vf yadif,scale=-2:480 -b:v 1500k -preset veryfast -flags +loop-global_header
                       %OUTPUT%'
-                 # aribb24 が有効な環境でのみ使用可能
-                 # - name: 720p (arib)
-                 #   cmd:
-                 #       '%FFMPEG% -re -dual_mono_mode main -fix_sub_duration -i pipe:0 -threads 0 -ignore_unknown
-                 #       -max_muxing_queue_size 1024 -f hls -hls_time 3 -hls_list_size 17 -hls_allow_cache 1
-                 #       -hls_segment_filename %streamFileDir%/stream%streamNum%-%09d.ts -hls_flags delete_segments -c:a
-                 #       aac -ar 48000 -b:a 192k -ac 2 -c:v libx264 -vf yadif,scale=-2:720 -b:v 3000k -preset veryfast
-                 #       -flags +loop-global_header -c:s webvtt -master_pl_name stream%streamNum%.m3u8
-                 #       %streamFileDir%/stream%streamNum%-child.m3u8'
-
     recorded:
         ts:
             webm:
@@ -159,13 +149,6 @@ stream:
                       %streamFileDir%/stream%streamNum%-%09d.ts -hls_flags delete_segments -c:a aac -ar 48000 -b:a 128k
                       -ac 2 -c:v libx264 -vf yadif,scale=-2:480 -b:v 3000k -preset veryfast -flags +loop-global_header
                       %OUTPUT%'
-                # aribb24 が有効な環境でのみ使用可能
-                # - name: 720p (arib)
-                #   cmd:
-                #       '%FFMPEG% -analyzeduration 10MB -probesize 10MB -fix_sub_duration -i pipe:0 -vf
-                #       yadif,scale=1280:720 -c:v libx264 -preset veryfast -c:a aac  -c:s webvtt -master_pl_name
-                #       stream%streamNum%.m3u8 -hls_list_size 0 -hls_flags delete_segments
-                #       /app/data/streamfiles/stream%streamNum%-child.m3u8'
 
         encoded:
             webm:

@@ -23,7 +23,7 @@ vim docker-compose.yml
 # イメージを更新
 docker-compose build --pull --no-cache 
 # 各種設定を最新のものに追従させて古いjsonは削除する
-cp epgstation/config/config.sample.yml epgstation/config/config.yml
+cp epgstation/config/config.yml.template epgstation/config/config.yml
 vim epgstation/config/config.yml
 cp epgstation/config/operatorLogConfig.sample.yml epgstation/config/operatorLogConfig.yml
 vim epgstation/config/operatorLogConfig.yml

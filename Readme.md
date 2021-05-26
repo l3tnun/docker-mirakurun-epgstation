@@ -11,14 +11,7 @@
 ## インストール手順
 
 ```sh
-$ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
-$ cd docker-mirakurun-epgstation
-$ cp docker-compose-sample.yml docker-compose.yml
-$ cp epgstation/config/config.yml.template epgstation/config/config.yml
-$ cp epgstation/config/operatorLogConfig.sample.yml epgstation/config/operatorLogConfig.yml
-$ cp epgstation/config/epgUpdaterLogConfig.sample.yml epgstation/config/epgUpdaterLogConfig.yml
-$ cp epgstation/config/serviceLogConfig.sample.yml epgstation/config/serviceLogConfig.yml
-$ docker-compose run --rm -e SETUP=true mirakurun
+$ curl -sf https://raw.githubusercontent.com/5ym/docker-mirakurun-epgstation/patch-1/setup.sh | sh -s
 
 #チャンネル設定
 $ vim mirakurun/conf/channels.yml
@@ -31,6 +24,12 @@ $ vim docker-compose.yml
 
 ```sh
 $ sudo docker-compose up -d
+```
+
+## チャンネルスキャン(取得漏れが出る場合もあるので注意)
+
+```sh
+$ curl -X PUT "http://localhost:40772/api/config/channels/scan"
 ```
 
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する

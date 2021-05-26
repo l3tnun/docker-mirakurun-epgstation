@@ -11,7 +11,8 @@
 ## インストール手順
 
 ```sh
-curl -sf https://raw.githubusercontent.com/5ym/docker-mirakurun-epgstation/patch-1/setup.sh | sh -s
+curl -sf https://raw.githubusercontent.com/l3tnun/docker-mirakurun-epgstation/v2/setup.sh | sh -s
+cd docker-mirakurun-epgstation
 
 #チャンネル設定
 vim mirakurun/conf/channels.yml

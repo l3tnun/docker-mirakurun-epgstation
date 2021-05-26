@@ -11,25 +11,25 @@
 ## インストール手順
 
 ```sh
-$ curl -sf https://raw.githubusercontent.com/5ym/docker-mirakurun-epgstation/patch-1/setup.sh | sh -s
+curl -sf https://raw.githubusercontent.com/5ym/docker-mirakurun-epgstation/patch-1/setup.sh | sh -s
 
 #チャンネル設定
-$ vim mirakurun/conf/channels.yml
+vim mirakurun/conf/channels.yml
 
 #コメントアウトされている restart や user の設定を適宜変更する
-$ vim docker-compose.yml
+vim docker-compose.yml
 ```
 
 ## 起動
 
 ```sh
-$ sudo docker-compose up -d
+sudo docker-compose up -d
 ```
 
-## チャンネルスキャン(取得漏れが出る場合もあるので注意)
+## チャンネルスキャン地上波のみ(取得漏れが出る場合もあるので注意)
 
 ```sh
-$ curl -X PUT "http://localhost:40772/api/config/channels/scan"
+curl -X PUT "http://localhost:40772/api/config/channels/scan"
 ```
 
 mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:8888 へアクセスし動作を確認する
@@ -37,18 +37,18 @@ mirakurun の EPG 更新を待ってからブラウザで http://DockerHostIP:88
 ## 停止
 
 ```sh
-$ sudo docker-compose down
+sudo docker-compose down
 ```
 
 ## 更新
 
 ```sh
 # mirakurunとdbを更新
-$ sudo docker-compose pull
+sudo docker-compose pull
 # epgstationを更新
-$ sudo docker-compose build --pull
+sudo docker-compose build --pull
 # 最新のイメージを元に起動
-$ sudo docker-compose up -d
+sudo docker-compose up -d
 ```
 
 ## 設定

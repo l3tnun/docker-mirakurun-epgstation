@@ -11,7 +11,7 @@ dbtype: mysql
 mysql:
     host: mysql
     port: 3306
-    user: epgstation
+    user: root
     password: epgstation
     database: epgstation
 

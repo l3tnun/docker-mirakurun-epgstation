@@ -28,6 +28,8 @@ services:
         volumes:
             - mysql-db:/var/lib/mysql
         environment:
+            MYSQL_USER: epgstation
+            MYSQL_PASSWORD: epgstation
             MYSQL_ROOT_PASSWORD: epgstation
             MYSQL_DATABASE: epgstation
             TZ: "Asia/Tokyo"

@@ -8,14 +8,15 @@ RUN apt-get update && \
     apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev && \
     apt-get -y install libx265-dev libnuma-dev && \
     apt-get -y install libasound2 libass9 libvdpau1 libva-x11-2 libva-drm2 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 && \
+# aribb24
+    mkdir /tmp/aribb24 && cd /tmp/aribb24 && \
+    curl -fsSL https://github.com/nkoriyama/aribb24/tarball/master | tar -xz --strip-components=1 && \
+    autoreconf -fiv && ./configure && make -j$(nproc) && make install && \
 \
 #ffmpeg build
-\
     mkdir /tmp/ffmpeg_sources && \
     cd /tmp/ffmpeg_sources && \
-    wget http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2 -O ffmpeg.tar.bz2 && \
-    tar xjvf ffmpeg.tar.bz2 && \
-    cd /tmp/ffmpeg_sources/ffmpeg* && \
+    curl -fsSL http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2 | tar -xj --strip-components=1 && \
     ./configure \
       --prefix=/usr/local \
       --disable-shared \
@@ -30,18 +31,18 @@ RUN apt-get update && \
       --enable-libvpx \
       --enable-libx264 \
       --enable-libx265 \
+      --enable-version3 \
+      --enable-libaribb24 \
       --enable-nonfree \
       --disable-debug \
       --disable-doc \
     && \
-    cd /tmp/ffmpeg_sources/ffmpeg* && \
     make -j$(nproc) && \
     make install && \
 \
 # 不要なパッケージを削除
-\
     apt-get -y remove $DEV && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/ffmpeg_sources
+    rm -rf /tmp/*

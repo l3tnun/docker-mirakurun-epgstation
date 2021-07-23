@@ -7,11 +7,7 @@ RUN apt-get update && \
     apt-get -y install $DEV && \
     apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev && \
     apt-get -y install libx265-dev libnuma-dev && \
-    apt-get -y install libasound2 libass9 libvdpau1 libva-x11-2 libva-drm2 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 && \
-# aribb24
-    mkdir /tmp/aribb24 && cd /tmp/aribb24 && \
-    curl -fsSL https://github.com/nkoriyama/aribb24/tarball/master | tar -xz --strip-components=1 && \
-    autoreconf -fiv && ./configure && make -j$(nproc) && make install && \
+    apt-get -y install libasound2 libass9 libvdpau1 libva-x11-2 libva-drm2 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 libaribb24-dev && \
 \
 #ffmpeg build
     mkdir /tmp/ffmpeg_sources && \

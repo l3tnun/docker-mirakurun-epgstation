@@ -56,7 +56,9 @@ services:
         ports:
             - "8888:8888"
             - "8889:8889"
-        #user: "1000:1000"
+#         user: "1000:1000"
+#         devices:
+#             - /dev/dri:/dev/dri
         restart: always
 
 volumes:

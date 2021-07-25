@@ -53,7 +53,7 @@ if (isDualMono) {
     Array.prototype.push.apply(args, ['-map', '0:a', '-c:a', 'copy']);
 }
 // 字幕ストリーム設定
-Array.prototype.push.apply(args, ['-map', '0:s', '-c:s', 'mov_text']);
+Array.prototype.push.apply(args, ['-map', '0:s?', '-c:s', 'mov_text']);
 // 品質設定
 Array.prototype.push.apply(args, ['-preset', 'fast']);
 // 出力ファイル

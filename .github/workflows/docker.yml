@@ -8,6 +8,8 @@ on:
     # Publish `v1.2.3` tags as releases.
     tags:
       - v2
+  schedule:
+    - cron:  '0 22 * * *'
 
   # Run tests for any PRs.
   pull_request:

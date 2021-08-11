@@ -1,3 +1,8 @@
+`docker pull ghcr.io/stdll00/epgstation:v2` to pull container
+
+GithubFlowでコンテナをビルドしています
+
+
 # docker-mirakurun-epgstation
 
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ

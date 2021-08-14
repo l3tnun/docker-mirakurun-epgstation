@@ -43,7 +43,7 @@ services:
     epgstation:
         build:
             context: "./epgstation"
-            dockerfile: "alpine.Dockerfile"
+            dockerfile: "debian.Dockerfile"
         volumes:
             - ./epgstation/config:/app/config
             - ./epgstation/data:/app/data

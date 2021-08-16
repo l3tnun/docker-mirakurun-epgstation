@@ -41,7 +41,9 @@ services:
                 max-file: "3"
 
     epgstation:
-        build: epgstation
+        build:
+            context: "./epgstation"
+            dockerfile: "debian.Dockerfile"
         volumes:
             - ./epgstation/config:/app/config
             - ./epgstation/data:/app/data

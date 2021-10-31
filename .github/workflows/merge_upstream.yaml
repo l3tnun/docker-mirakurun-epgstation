@@ -19,7 +19,9 @@ jobs:
                                 # complains about unrelated histories without it.
                                 # (but actions/checkout@v2 can also be instructed
                                 # to fetch all git depth right from the start)
-
+          git commit --allow-empty -m "test"
+          git push origin v2
+          
           git remote add upstream https://github.com/l3tnun/docker-mirakurun-epgstation.git
           git fetch upstream
 

@@ -24,7 +24,8 @@ services:
                 max-size: 10m
 
     mysql:
-        image: mariadb:10.4
+        image: mariadb:10.5
+        # image: mysql:8.0 # 囲み文字を使用する場合
         volumes:
             - mysql-db:/var/lib/mysql
         environment:
@@ -33,7 +34,8 @@ services:
             MYSQL_ROOT_PASSWORD: epgstation
             MYSQL_DATABASE: epgstation
             TZ: "Asia/Tokyo"
-        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_520_ci --performance-schema=false --expire_logs_days=1
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --performance-schema=false --expire_logs_days=1 # for mariadb
+        # command: --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_as_ci --performance-schema=false --expire_logs_days=1 --default-authentication-plugin=mysql_native_password # for myql
         restart: always
         logging:
             options:

@@ -33,4 +33,4 @@ jobs:
           # Build and Publish container image
           cd epgstation && docker buildx build --push \
           --tag epgstation \
-          --platform linux/amd64,linux/arm/v7,linux/arm64 . -f debian.Dockerfile 
+          --platform linux/arm64 . -f debian.Dockerfile 

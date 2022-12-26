@@ -10,6 +10,9 @@ on:
         required: false
         default: ''
 
+env:
+  DOCKER_BUILDKIT: "0"
+  COMPOSE_DOCKER_CLI_BUILD: "0"
 jobs:
   ghr_push:
     runs-on: ubuntu-latest

@@ -1,7 +1,7 @@
 FROM l3tnun/epgstation:alpine
 
 ENV DEV="autoconf automake bash binutils bzip2 cmake curl coreutils diffutils file g++ gcc gperf libtool make python3 openssl-dev tar yasm nasm zlib-dev expat-dev pkgconfig libass-dev lame-dev opus-dev libtheora-dev libvorbis-dev libvpx-dev x264-dev x265-dev libva-dev"
-ENV FFMPEG_VERSION=4.2.4
+ENV FFMPEG_VERSION=6.1.1
 # intel環境でハードウェアエンコードを利用したい場合は下記をコメントアウト
 # ENV LD_LIBRARY_PATH=/opt/intel/mediasdk/lib64
 # ENV PKG_CONFIG_PATH=/opt/intel/mediasdk/lib64/pkgconfig

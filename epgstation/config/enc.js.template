@@ -49,6 +49,7 @@ if (isDualMono) {
         '-map', '[FR]',
         '-metadata:s:a:0', 'language=jpn',
         '-metadata:s:a:1', 'language=eng',
+        '-ac', '1',
     ]);
 } else {
     Array.prototype.push.apply(args, ['-map', '0:a']);
